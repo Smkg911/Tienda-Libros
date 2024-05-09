@@ -27,3 +27,8 @@ class Libro:
     def getRutaImagen(self):
         return self.__rutaImagen
     
+    def setCantidadActual(self, cantidad):
+        self.__cantidad = cantidad
+        
+    def setTransaccion(self, transaccion): 
+        self.__transaccion.append(transaccion)

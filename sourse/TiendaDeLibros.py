@@ -37,4 +37,17 @@ class TiendaLibrios:
                 self.__catalogo.remove(buscar)
                 eliminado = True 
         return eliminado
-        
+    
+    def VenderLibro(self,isbn,cantidadVender): 
+        buscar = self.buscarLibroIsbn(isbn)
+        cantidadLibros = buscar.getCantidad()
+        precio = 0
+        nCantidad = 0
+        if buscar:
+            if cantidadVender <= cantidadLibros:
+                nCantidad = cantidadLibros - cantidadVender
+                buscar.setCantidadActual(nCantidad)
+                precio = buscar.getPrecioVenta() * cantidadVender
+                buscar.setTransaccion(precio)
+                self.__caja += precio
+        return precio
